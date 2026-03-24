@@ -1,4 +1,5 @@
-# [Your Repository Name]
+# PaDIS model- KLIP method
+
 
 This repository is built on top of the [PaDIS](https://github.com/jasonhu4/PaDIS) codebase.
 
