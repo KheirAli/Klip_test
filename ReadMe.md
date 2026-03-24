@@ -7,7 +7,7 @@ This repository is a **modified fork** of [jasonhu4/PaDIS](https://github.com/ja
 
 The original PaDIS performs reconstruction by sampling from a patch-based diffusion model. This fork introduces the following changes:
 
-1. **Modified sampling in `inverse_nodist.py`**: The sampler now **stores intermediate measurement updates** (i.e., the data-consistency corrections applied at each diffusion step). These stored updates are the inputs required by the **KLIP (Karhunen–Loève Image Processing)** post-processing method.
+1. **Modified sampling**: The sampler now **stores intermediate measurement updates** (i.e., the data-consistency corrections applied at each diffusion step). These stored updates are the inputs required by the **KLIP** post-processing method.
 
 2. **KLIP post-processing notebook**: A Jupyter notebook (`klip_analysis.ipynb`) is included that loads the stored measurement updates and runs the KLIP algorithm to further improve reconstruction quality.
 
@@ -39,12 +39,8 @@ cd Klip_test
 
 ### 2. Create the Conda Environment
 
-```bash
-conda env create -f environment.yml
-conda activate padis
-```
+create the environment for PaDIS model and all of the requirements from there. 
 
-> See `environment.yml` for the full list of dependencies. For CT experiments, also install the ODL package (see [`odl_env.yml`](https://github.com/jasonhu4/PaDIS/blob/main/odl_env.yml) in the original repo).
 
 ### 3. Prepare Directories
 
@@ -67,7 +63,7 @@ Place your test images (`.png`) inside `image_dir/`. The reconstruction script w
 
 ### Step 1 — Train or Download a Checkpoint
 
-Train a model (see the original [PaDIS repo](https://github.com/jasonhu4/PaDIS) for training details), or download a pre-trained CT checkpoint from the original authors.
+Train a model (see the original [PaDIS repo](https://github.com/jasonhu4/PaDIS) for training details), or download a pre-trained CT checkpoint from [here](google.com).
 
 Place the checkpoint (`.pkl` file) inside `training-runs/`.
 
@@ -75,32 +71,7 @@ Place the checkpoint (`.pkl` file) inside `training-runs/`.
 
 Set your paths at the top of the command. The two key variables are:
 
-| Variable | Description |
-|---|---|
-| `IMAGE_DIR` | Path to folder containing input PNG test images |
-| `OUTDIR` | Path to folder where reconstructions and measurement updates will be saved |
-
-```bash
-# ── SET YOUR PATHS HERE ──────────────────────────────────────────────
-IMAGE_DIR="./image_dir"         # <-- folder with your input PNG images
-OUTDIR="./results"              # <-- folder where outputs will be saved
-CHECKPOINT="./training-runs/your-checkpoint/network-snapshot.pkl"
-# ─────────────────────────────────────────────────────────────────────
-
-# Example: 20-view CT reconstruction
-python3 inverse_nodist.py \
-  --network="${CHECKPOINT}" \
-  --outdir="${OUTDIR}" \
-  --image_dir="${IMAGE_DIR}" \
-  --image_size=256 \
-  --views=20 \
-  --name=ct_parbeam \
-  --steps=100 \
-  --sigma_min=0.003 \
-  --sigma_max=10 \
-  --zeta=0.3 \
-  --pad=24 \
-  --psize=56
+run the bash script for cinditional over measurement sampling.
 ```
 
 **What the modified script saves to `OUTDIR`:**
@@ -111,18 +82,6 @@ python3 inverse_nodist.py \
 
 After reconstruction is complete, open and run the Jupyter notebook:
 
-```bash
-jupyter notebook klip_analysis.ipynb
-```
-
-At the top of the notebook, set the same output directory:
-
-```python
-# ── SET YOUR PATHS HERE ──────────────────────────────────────────────
-OUTDIR = "./results"            # must match the --outdir used in Step 2
-KLIP_OUTDIR = "./results/klip" # where KLIP-processed images will be saved
-# ─────────────────────────────────────────────────────────────────────
-```
 
 The notebook will:
 1. Load the stored measurement updates from `OUTDIR/measurement_updates/`
@@ -156,7 +115,7 @@ The notebook will:
 
 In the original PaDIS, data-consistency corrections are computed and applied at each diffusion timestep but **discarded** afterwards. For the KLIP method to work, these corrections (measurement updates) must be retained across all timesteps for each reconstructed image.
 
-The modification in `inverse_nodist.py` intercepts these updates during the sampling loop and writes them to disk. The KLIP notebook then loads them as a matrix and applies a truncated eigendecomposition to suppress noise components — yielding cleaner reconstructions than the raw PaDIS output alone.
+The modification in sampling, intercepts these updates during the sampling loop and writes them to disk. The KLIP notebook then loads them for computing ood measure.
 
 ---
 
