@@ -1,21 +1,25 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2709
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+# [Your Repository Name]
 
-\f0\fs24 \cf0 This repository is based on the [PaDIS](https://github.com/jasonhu4/PaDIS) codebase.  \
-We replace the original sampling method with a new sampler tailored for our experiments.\
-\
-## Main changes compared to PaDIS\
-\
-- Replaced the sampling routine in `PATH/TO/FILE.py` with our custom method.\
-- Added scripts for running experiments on [your dataset / task].\
-- Updated configuration files to support the new sampler.\
-\
-## Usage\
-\
-```bash\
-# Example:\
-python run_custom_sampler.py --config configs/your_config.yaml}
+This repository is built on top of the [PaDIS](https://github.com/jasonhu4/PaDIS) codebase.
+
+We modify the original framework by replacing its sampling procedure with a custom sampler designed for our experiments. In addition, we include updated configuration files and experiment scripts for our task.
+
+## Overview
+
+Our implementation keeps the main structure of PaDIS, but introduces a new sampling strategy that better fits our setting. This repository is intended for reproducing our experiments and extending the modified pipeline.
+
+## Main Changes Compared to PaDIS
+
+- Replaced the original sampling routine in `PATH/TO/FILE.py` with our custom sampler.
+- Added scripts for running experiments on `[dataset / task name]`.
+- Updated configuration files to support the modified sampling process.
+- Adjusted parts of the pipeline to match our evaluation setup.
+
+## Installation
+
+Clone the repository and install the required dependencies:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+pip install -r requirements.txt
