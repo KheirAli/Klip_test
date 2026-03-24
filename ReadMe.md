@@ -72,7 +72,7 @@ Place the checkpoint (`.pkl` file) inside `training-runs/`.
 Set your paths at the top of the command. The two key variables are:
 
 run the bash script for cinditional over measurement sampling.
-```
+
 
 **What the modified script saves to `OUTDIR`:**
 - Reconstructed images (same as original PaDIS)
