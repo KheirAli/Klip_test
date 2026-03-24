@@ -1,4 +1,5 @@
-# PaDIS + KLIP: Patch-based Diffusion Inverse Solver with KLIP Integration
+# PaDIS + KLIP: KLIP implementation over PaDIS sampling method for inverse problems
+
 
 This repository is a **modified fork** of [jasonhu4/PaDIS](https://github.com/jasonhu4/PaDIS), a Patch-based Position-Aware Diffusion Inverse Solver for solving inverse imaging problems (CT reconstruction, deblurring, superresolution).
 
