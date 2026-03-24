@@ -63,7 +63,7 @@ Place your test images (`.png`) inside `image_dir/`. The reconstruction script w
 
 ### Step 1 — Train or Download a Checkpoint
 
-Train a model (see the original [PaDIS repo](https://github.com/jasonhu4/PaDIS) for training details), or download a pre-trained CT checkpoint from [here](google.com).
+Train a model (see the original [PaDIS repo](https://github.com/jasonhu4/PaDIS) for training details), or download a pre-trained CT checkpoint from [here]([google.com](https://drive.google.com/file/d/1-WBjiXYTOelRIWS38Ft6J_TGGqkPy-ou/view?usp=sharing)).
 
 Place the checkpoint (`.pkl` file) inside `training-runs/`.
 
