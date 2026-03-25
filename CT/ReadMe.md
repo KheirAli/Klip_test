@@ -6,7 +6,7 @@ This directory contains the **CT inverse problem** experiments. It is a modified
 ## Setup
 
 We have used the [jasonhu4/PaDIS](https://github.com/jasonhu4/PaDIS) for sampling and you need to download the dependencies there.
----
+
 
 ## Usage
 
