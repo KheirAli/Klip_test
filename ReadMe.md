@@ -134,6 +134,20 @@ If you use this code, please cite the original PaDIS paper:
 
 ---
 
+
+CelebA_experiment.ipynb — DPS Deblurring + Heatmap + AUC
+Open CelebA_experiment.ipynb. At the top of the notebook, set your paths and parameters in the Configuration cell:
+
+The notebook will:
+
+- Load the CelebA-HQ DDPM (google/ddpm-celebahq-256) from Hugging Face
+- Generate a blurry measurement and run DPS deblurring
+- Store measurement updates at each diffusion step
+- Compute an anomaly heatmap from the stored updates
+- Evaluate AUC against binary masks
+- (Optionally) generate synthetic artifact images + masks for evaluation
+
+
 ## Acknowledgements
 
 This repository is built on top of [jasonhu4/PaDIS](https://github.com/jasonhu4/PaDIS). The KLIP post-processing code in `klip_analysis.ipynb` was developed separately and integrated into this fork to enable improved reconstruction via Karhunen–Loève decomposition of the diffusion measurement updates.
