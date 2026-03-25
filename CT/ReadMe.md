@@ -5,33 +5,7 @@ This directory contains the **CT inverse problem** experiments. It is a modified
 
 ## Setup
 
-### 1. Create the Conda Environment
-
-ODL (Operator Discretization Library) is required for the CT geometry and is best installed via conda:
-
-```bash
-conda env create -f odl_env.yml
-conda activate odl_env
-```
-
-> If you run into ODL installation issues, refer to `odlstuff/README.md` and the simplified environment file at `odlstuff/odl_env_simplified.yml`.
-
-### 2. Prepare Your Data
-
-Download the **AAPM Low-Dose CT Challenge** dataset and preprocess it:
-
-```bash
-python process_AAPM.py --data_dir /path/to/aapm/raw --out_dir ./data
-```
-
-Place processed PNG images in a directory of your choice — this will be your `IMAGE_DIR`.
-
-### 3. Prepare Directories
-
-```bash
-mkdir -p image_dir results training-runs
-```
-
+We have used the [jasonhu4/PaDIS](https://github.com/jasonhu4/PaDIS) for sampling and you need to download the dependencies there.
 ---
 
 ## Usage
