@@ -2,18 +2,7 @@
 
 This directory applies the KLIP method to **image deblurring** on CelebA-HQ 256×256 faces. A pre-trained DDPM (`google/ddpm-celebahq-256`) is used as the diffusion prior. DPS (Diffusion Posterior Sampling) runs the reverse diffusion while storing measurement updates at every step, which are then used to build a pixel-level anomaly heatmap.
 
----
 
-## Directory Structure
-
-```
-CelebA/
-├── celebA.ipynb    # Full pipeline: deblurring, measurement update storage,
-│                   # anomaly heatmap, AUC evaluation, synthetic artifact generation
-└── README.md       # This file
-```
-
----
 
 ## Setup
 
