@@ -2,46 +2,6 @@
 
 This directory contains the **CT inverse problem** experiments. It is a modified version of [jasonhu4/PaDIS](https://github.com/jasonhu4/PaDIS) where the reverse diffusion sampler stores intermediate measurement updates so that the **KLIP** post-processing method can be applied.
 
----
-
-## Directory Structure
-
-```
-CT/
-├── inverse_nodist.py           # Modified PaDIS sampler — stores measurement updates
-├── inverse_operators.py        # CT forward operator (H) and adjoint (H^T)
-├── Klip_PaDIS.ipynb            # KLIP notebook: loads updates, runs KLIP, scores OOD
-├── sampling_script.sh          # Bash script to launch CT reconstruction
-├── process_AAPM.py             # Preprocessing script for the AAPM CT dataset
-├── dps_sampling_test.py        # Standalone DPS sampling test
-├── parbeam_updated.py          # Updated parallel-beam CT geometry
-├── odlstuff/                   # ODL-based CT geometry utilities
-│   ├── parbeam.py              # Parallel-beam projector
-│   ├── parbeam_updated.py      # Updated parallel-beam projector
-│   ├── fanbeam.py              # Fan-beam projector
-│   ├── CBCTDF.py               # Cone-beam CT geometry
-│   ├── odl_2d.py               # 2D ODL helpers
-│   ├── odl_demo.py             # ODL demonstration script
-│   ├── operator2.py            # Additional operator definitions
-│   └── README.md               # ODL setup notes
-├── training/                   # PaDIS model architecture and training loop
-│   ├── networks.py             # Score network definition
-│   ├── training_loop.py        # Training loop
-│   ├── dataset.py              # Dataset loader
-│   ├── loss.py                 # Training loss
-│   ├── augment.py              # Data augmentation
-│   ├── patch_loss.py           # Patch-based loss
-│   ├── pos_embedding.py        # Positional embedding
-│   ├── unet.py                 # UNet backbone
-│   ├── fp16_util.py            # Mixed precision utilities
-│   └── nn.py                   # Neural network helpers
-├── torch_utils/                # PyTorch utilities (from original PaDIS)
-├── dnnlib/                     # Deep learning utility library (from original PaDIS)
-├── odl_env.yml                 # Conda environment (includes ODL)
-└── requirements_CelebA.txt     # Pip requirements
-```
-
----
 
 ## Setup
 
