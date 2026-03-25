@@ -9,24 +9,8 @@ The original PaDIS performs reconstruction by sampling from a patch-based diffus
 
 1. **Modified sampling**: The sampler now **stores intermediate measurement updates** (i.e., the data-consistency corrections applied at each diffusion step). These stored updates are the inputs required by the **KLIP** post-processing method.
 
-2. **KLIP post-processing notebook**: A Jupyter notebook (`klip_analysis.ipynb`) is included that loads the stored measurement updates and runs the KLIP algorithm to further improve reconstruction quality.
+2. **KLIP post-processing notebook**: A Jupyter notebook (`Klip_PaDIS.ipynb`) is included that loads the stored measurement updates and runs the KLIP algorithm to further improve reconstruction quality.
 
----
-
-## Repository Structure
-
-```
-.
-├── training-runs/          # Checkpoint directory (created by user, not tracked by git)
-├── image_dir/              # Input directory: place your test PNG images here
-├── results/                # Output directory: reconstructions and stored updates saved here
-├── inverse_nodist.py       # Modified PaDIS reconstruction script (stores measurement updates)
-├── klip_analysis.ipynb     # Jupyter notebook: run KLIP method on stored updates
-├── environment.yml         # Conda environment with all dependencies
-└── README.md
-```
-
----
 
 ## Setup
 
@@ -119,8 +103,8 @@ The modification in sampling, intercepts these updates during the sampling loop 
 
 ---
 # CelebA Experiment 
-CelebA_experiment.ipynb — DPS Deblurring + Heatmap + AUC
-Open CelebA_experiment.ipynb. At the top of the notebook, set your paths and parameters in the Configuration cell:
+CelebA.ipynb — DPS Deblurring + Heatmap + AUC
+Open CelebA.ipynb. At the top of the notebook, set your paths and parameters in the Configuration cell:
 
 The notebook will:
 
