@@ -118,7 +118,7 @@ In the original PaDIS, data-consistency corrections are computed and applied at 
 The modification in sampling, intercepts these updates during the sampling loop and writes them to disk. The KLIP notebook then loads them for computing ood measure.
 
 ---
-## CelebA Experiment 
+# CelebA Experiment 
 CelebA_experiment.ipynb — DPS Deblurring + Heatmap + AUC
 Open CelebA_experiment.ipynb. At the top of the notebook, set your paths and parameters in the Configuration cell:
 
